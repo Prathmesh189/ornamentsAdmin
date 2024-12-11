@@ -93,7 +93,7 @@ const Sidebar = ({ isOpen, toggleSidebar, onLogout }) => {
      <div className={`fixed top-0 left-0 h-full bg-gray-900 text-white transition-all duration-300 ease-in-out z-20 ${isOpen ? 'w-64' : 'w-16'}`}>
    
       <div className="flex justify-between items-center px-4 py-4 border-b border-gray-700">
-        <h1 className={`font-extrabold text-lg ${!isOpen && 'hidden'}`}>Ornaments Admin</h1>
+        <h1 className={`font-extrabold text-lg ${!isOpen && 'hidden'}`}>Ornaments</h1>
         <button onClick={toggleSidebar} className="text-gray-400 hover:text-gray-300 transition-colors">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
