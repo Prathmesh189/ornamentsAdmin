@@ -22,14 +22,14 @@ function AdminSettings() {
     setTimeout(() => {
       // Simulated API response
       const fetchedSettings = {
-        websiteName: 'Manasvi Sports',
-        tagline: 'Your One-Stop Sports Shop',
-        metaDescription: 'Best place for sports products and gear.',
+        websiteName: 'Ornaments',
+        tagline: 'Celebrate Every Moment with Elegance.',
+        metaDescription: 'Discover timeless ornaments that blend tradition and modern elegance. Shop stunning necklaces, rings, bangles, and more for every occasion.',
        //  defaultCurrency: 'USD',
        //  timeZone: 'UTC',
-        contactEmail: 'support@sportshub.com',
+        contactEmail: 'ornsments@gmail.com',
         phoneNumber: '+1 234 567 890',
-        address: '123 Sports Lane, Stadium City',
+        address: 'ornaments, Pune 411025',
         socialMediaLinks: ' ',
       };
       setSettings(fetchedSettings);
