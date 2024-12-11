@@ -1,34 +1,51 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // Importing motion
+import { motion } from "framer-motion"; 
 import { format } from "date-fns";
 import StatCard from "../Components/StatCrad"; 
 import { FaUsers } from "react-icons/fa";
+import Pagination from '../Components/Pagination';
 
-// Dummy data
 const dummyDeletedUsers = [
-  { userId: 1, name: "John Doe", phone: "+1234567890", deletedAt: "2024-12-01T12:00:00Z" },
-  { userId: 2, name: "Jane Smith", phone: "+0987654321", deletedAt: "2024-12-02T15:30:00Z" },
-  { userId: 3, name: "Robert Brown", phone: "+1122334455", deletedAt: "2024-12-05T08:45:00Z" },
-  { userId: 4, name: "Emily White", phone: "+1222333444", deletedAt: "2024-12-08T10:20:00Z" },
-  { userId: 5, name: "John Doe", phone: "123-456-7890", deletedAt: new Date() },
-  { userId: 6, name: "Jane Smith", phone: "987-654-3210", deletedAt: new Date() },
+  { userId: 1, name: "John Doe", phone: "+1234567890", email: "john.doe@example.com", address: "123 Main St, Springfield", deletedAt: "2024-12-01T12:00:00Z" },
+  { userId: 2, name: "Jane Smith", phone: "+0987654321", email: "jane.smith@example.com", address: "456 Elm St, Springfield", deletedAt: "2024-12-02T15:30:00Z" },
+  { userId: 3, name: "Robert Brown", phone: "+1122334455", email: "robert.brown@example.com", address: "789 Oak St, Springfield", deletedAt: "2024-12-05T08:45:00Z" },
+  { userId: 4, name: "Emily White", phone: "+1222333444", email: "emily.white@example.com", address: "101 Pine St, Springfield", deletedAt: "2024-12-08T10:20:00Z" },
+  { userId: 5, name: "John Doe", phone: "123-456-7890", email: "john.doe@example.com", address: "123 Main St, Springfield", deletedAt: new Date() },
+  { userId: 6, name: "Jane Smith", phone: "987-654-3210", email: "jane.smith@example.com", address: "456 Elm St, Springfield", deletedAt: new Date() },
+  { userId: 7, name: "Alice Johnson", phone: "+1122334455", email: "alice.johnson@example.com", address: "123 Birch St, Springfield", deletedAt: "2024-12-09T09:00:00Z" },
+  { userId: 8, name: "Bob White", phone: "+2233445566", email: "bob.white@example.com", address: "456 Cedar St, Springfield", deletedAt: "2024-12-10T14:30:00Z" },
+  { userId: 9, name: "Charlie Brown", phone: "+3344556677", email: "charlie.brown@example.com", address: "789 Willow St, Springfield", deletedAt: "2024-12-11T16:00:00Z" },
+  { userId: 10, name: "David Black", phone: "+4455667788", email: "david.black@example.com", address: "101 Maple St, Springfield", deletedAt: "2024-12-12T18:00:00Z" },
+  { userId: 11, name: "Eva Green", phone: "+5566778899", email: "eva.green@example.com", address: "202 Birchwood St, Springfield", deletedAt: "2024-12-13T12:20:00Z" },
+  { userId: 12, name: "Frank White", phone: "+6677889900", email: "frank.white@example.com", address: "303 Pinewood St, Springfield", deletedAt: "2024-12-14T17:10:00Z" },
+  // Add more users if needed
 ];
 
-const totalDummy = 4;
-const totalPagesDummy = 2;
+const totalDummy = dummyDeletedUsers.length;
+const totalPagesDummy = Math.ceil(totalDummy / 10); // 10 items per page
 
-function DeleteUsers({ setPage, page }) {
+function DeleteUsers() {
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1); // Initialize page state
 
-  // Dummy data for deleted users
-  const deletedUsers = dummyDeletedUsers;
+  const itemsPerPage = 10; // Display 10 items per page
   const total = totalDummy;
   const totalPages = totalPagesDummy;
+
+  const filteredDeletedUsers = dummyDeletedUsers.filter((user) =>
+    user.name.toLowerCase().includes(search.toLowerCase()) ||
+    user.phone.includes(search) ||
+    user.email.toLowerCase().includes(search) ||
+    user.address.toLowerCase().includes(search) // Added address filter
+  );
+
+  const paginate = (pageNumber) => {
+    setPage(pageNumber); // Update the page state
+  };
 
   return (
     <div className="flex-1 overflow-auto relative z-10">
       <main className="max-w-7xl mx-auto py-6 px-4 lg:px-8 bg-white">
-        {/* Stats */}
         <motion.div
           className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-8"
           initial={{ opacity: 0, y: 20 }}
@@ -38,47 +55,41 @@ function DeleteUsers({ setPage, page }) {
           <StatCard
             name="Total Deleted Users"
             icon={FaUsers}
-            value={(deletedUsers.filter(user =>
-              user.name.toLowerCase().includes(search.toLowerCase()) ||
-              user.role.toLowerCase().includes(search.toLowerCase()) ||
-              user.phone.includes(search)
-            ).length ?? 0).toString()} // Show filtered user count
+            value={(filteredDeletedUsers.length ?? 0).toString()} 
             color="#6366F1"
           />
         </motion.div>
 
-        {/* Search */}
         <div className="flex mb-6 gap-4">
           <input
             type="text"
             className="px-4 py-2 border rounded-lg w-full max-w-lg"
-            placeholder="Search by name, role, or phone"
+            placeholder="Search by name, phone, email, or address"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
 
-        {/* Deleted Users Table */}
         <div className="overflow-x-auto">
           <table className="min-w-full table-auto border-collapse border border-gray-200 text-black shadow-lg rounded-lg">
             <thead>
               <tr className="bg-gray-100">
                 <th className="px-4 py-2 text-left">Name</th>
                 <th className="px-4 py-2 text-left">Phone</th>
+                <th className="px-4 py-2 text-left">Email</th>
+                <th className="px-4 py-2 text-left">Address</th> {/* Added Address column */}
                 <th className="px-4 py-2 text-left">Deleted At</th>
               </tr>
             </thead>
             <tbody>
-              {deletedUsers
-                .filter((user) =>
-                  user.name.toLowerCase().includes(search.toLowerCase()) ||
-                  user.role.toLowerCase().includes(search.toLowerCase()) ||
-                  user.phone.includes(search)
-                )
+              {filteredDeletedUsers
+                .slice((page - 1) * itemsPerPage, page * itemsPerPage)
                 .map((user) => (
                   <tr key={user.userId} className="border-b hover:bg-gray-50">
                     <td className="px-4 py-2">{user.name}</td>
                     <td className="px-4 py-2">{user.phone}</td>
+                    <td className="px-4 py-2">{user.email}</td> {/* Added Email data */}
+                    <td className="px-4 py-2">{user.address}</td> {/* Added Address data */}
                     <td className="px-4 py-2">
                       {format(new Date(user.deletedAt), "MM/dd/yyyy")}
                     </td>
@@ -88,44 +99,12 @@ function DeleteUsers({ setPage, page }) {
           </table>
         </div>
 
-        {/* Pagination */}
-        <div className="flex flex-col justify-center items-center mt-4 space-y-2">
-          <div className="flex space-x-2">
-            <button
-              onClick={() => setPage(page > 1 ? page - 1 : 1)}
-              disabled={page === 1}
-              className={`px-3 py-1 rounded-md text-sm font-medium ${page === 1 ? "bg-transparent text-black cursor-not-allowed" : "bg-white text-black hover:bg-gray-600"}`}
-            >
-              Previous
-            </button>
-
-            {Array.from({ length: Math.min(3, totalPages) }).map((_, index) => {
-              const pageIndex = Math.max(1, page - 1) + index;
-              return (
-                pageIndex <= totalPages && (
-                  <button
-                    key={pageIndex}
-                    onClick={() => setPage(pageIndex)}
-                    className={`px-3 py-1 rounded-md text-sm font-medium ${page === pageIndex ? "bg-blue-600 text-white" : "bg-white text-black hover:bg-gray-600"}`}
-                  >
-                    {pageIndex}
-                  </button>
-                )
-              );
-            })}
-
-            <button
-              onClick={() => setPage(page < totalPages ? page + 1 : totalPages)}
-              disabled={page === totalPages}
-              className={`px-3 py-1 rounded-md text-sm font-medium ${page === totalPages ? "bg-transparent text-black cursor-not-allowed" : "bg-white text-black hover:bg-gray-600"}`}
-            >
-              Next
-            </button>
-          </div>
-          <div className="text-sm font-medium text-gray-600">
-            Page {page} of {totalPages}
-          </div>
-        </div>
+        <Pagination
+          page={page}
+          itemsPerPage={itemsPerPage}
+          paginate={paginate}
+          filteredOrders={filteredDeletedUsers}
+        />
       </main>
     </div>
   );
