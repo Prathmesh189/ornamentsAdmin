@@ -25,7 +25,7 @@ const Navbar = ({ toggleSidebar }) => {
       </button>
       
       {/* Welcome message */}
-      <h1 className="text-lg lg:text-xl text-black font-bold mb-2 lg:mb-0 hidden md:block">Welcome, Admin</h1>
+      <h1 className="text-lg lg:text-xl text-black font-bold mb-2 lg:mb-0 hidden md:block">Ornaments Admin</h1>
       
       {/* Conditional Search bar for larger screens */}
       {showSearchBar && (

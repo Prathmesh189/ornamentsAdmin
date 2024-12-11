@@ -12,6 +12,7 @@ import AddBall from './AddForms/AddBall';
 import AddShoes from './AddForms/AddShoes';
 import AddTrackPant from './AddForms/AddTrackPant';
 import AddCaps from './AddForms/AddCaps';
+import { GiNecklace, GiEarrings, GiRing, GiHairStrands } from 'react-icons/gi'; // Jewelry related icons
 
 function Products() {
   const [products, setProducts] = useState(mockProductData);
@@ -63,17 +64,17 @@ function Products() {
     <div className="container mx-auto p-6">
       {/* Stat Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-6 mb-6">
-        <StatCard name="All Products" icon={FaTshirt} value={products.length} color="black" onClick={() => handleStatCardClick('All')} />
-        <StatCard name="Mangalsutra" icon={FaTshirt} value={products.filter(p => p.category === 'Mangalsutra').length} color="blue" onClick={() => handleStatCardClick('Mangalsutra')} />
-        <StatCard name="Earrings" icon={FaBaseballBall} value={products.filter(p => p.category === 'Earrings').length} color="green" onClick={() => handleStatCardClick('Earrings')} />
-        <StatCard name="Rings" icon={FaShoePrints} value={products.filter(p => p.category === 'Rings').length} color="red" onClick={() => handleStatCardClick('Rings')} />
-        <StatCard name="Khopa" icon={PiPantsFill} value={products.filter(p => p.category === 'Khopa').length} color="yellow" onClick={() => handleStatCardClick('Khopa')} />
-        <StatCard name="HairPins" icon={GiBilledCap} value={products.filter(p => p.category === 'HairPins').length} color="pink" onClick={() => handleStatCardClick('HairPins')} />
-        <StatCard name="Nacklace set" icon={FaBaseballBall} value={products.filter(p => p.category === 'Nacklace set').length} color="green" onClick={() => handleStatCardClick('Nacklace set')} />
+        <StatCard name="All Products" icon={GiNecklace} value={products.length} color="black" onClick={() => handleStatCardClick('All')} />
+        <StatCard name="Mangalsutra" icon={GiNecklace} value={products.filter(p => p.category === 'Mangalsutra').length} color="blue" onClick={() => handleStatCardClick('Mangalsutra')} />
+        <StatCard name="Earrings" icon={GiEarrings} value={products.filter(p => p.category === 'Earrings').length} color="green" onClick={() => handleStatCardClick('Earrings')} />
+        <StatCard name="Rings" icon={GiRing} value={products.filter(p => p.category === 'Rings').length} color="red" onClick={() => handleStatCardClick('Rings')} />
+        <StatCard name="Khopa" icon={GiHairStrands} value={products.filter(p => p.category === 'Khopa').length} color="yellow" onClick={() => handleStatCardClick('Khopa')} />
+        <StatCard name="HairPins" icon={GiHairStrands} value={products.filter(p => p.category === 'HairPins').length} color="pink" onClick={() => handleStatCardClick('HairPins')} />
+        {/* <StatCard name="Nacklace set" icon={FaBaseballBall} value={products.filter(p => p.category === 'Nacklace set').length} color="green" onClick={() => handleStatCardClick('Nacklace set')} />
         <StatCard name="Peacock theme Jwellary" icon={FaShoePrints} value={products.filter(p => p.category === 'Peacock theme Jwellary').length} color="red" onClick={() => handleStatCardClick('Peacock theme Jwellary')} />
         <StatCard name="Earcuffs" icon={PiPantsFill} value={products.filter(p => p.category === 'Earcuffs').length} color="yellow" onClick={() => handleStatCardClick('Earcuffs')} />
         <StatCard name="Bangles" icon={GiBilledCap} value={products.filter(p => p.category === 'Bangles').length} color="pink" onClick={() => handleStatCardClick('Bangles')} />
-        <StatCard name="Traditional Nath" icon={GiBilledCap} value={products.filter(p => p.category === 'Traditional Nath').length} color="pink" onClick={() => handleStatCardClick('Traditional Nath')} />
+        <StatCard name="Traditional Nath" icon={GiBilledCap} value={products.filter(p => p.category === 'Traditional Nath').length} color="pink" onClick={() => handleStatCardClick('Traditional Nath')} /> */}
       </div>
 
       {/* Add Product Button */}
