@@ -90,9 +90,11 @@ const Sidebar = ({ isOpen, toggleSidebar, onLogout }) => {
   };
 
   return (
-    <div className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-all duration-300 ease-in-out z-20 ${isOpen ? 'w-64' : 'w-16'}`}>
+    //  <div className={`fixed top-0 left-0 h-full bg-blue-800 text-white transition-all duration-300 ease-in-out z-20 ${isOpen ? 'w-64' : 'w-16'}`}>
+    <div style={{ backgroundColor: '#1B0C22' }} className={`fixed top-0 left-0 h-full text-white transition-all duration-300 ease-in-out z-20 ${isOpen ? 'w-64' : 'w-16'}`}> 
+ 
       <div className="flex justify-between items-center px-4 py-4 border-b border-gray-700">
-        <h1 className={`font-bold text-lg ${!isOpen && 'hidden'}`}>Manasvi Sports</h1>
+        <h1 className={`font-extrabold text-lg ${!isOpen && 'hidden'}`}>Ornaments</h1>
         <button onClick={toggleSidebar} className="text-gray-400 hover:text-gray-300 transition-colors">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

@@ -17,14 +17,16 @@ const Navbar = ({ toggleSidebar }) => {
   };
 
   return (
-    <div className="bg-gray-100 shadow-md px-4 py-2 flex justify-between items-center text-gray-700">
+    // <div className="bg-gray-100 shadow-md px-4 py-2 flex justify-between items-center text-gray-700">
+  <div style={{ backgroundColor: '#A48E90', color: '#6F6F6F' }} className="shadow-md px-4 py-2 flex justify-between items-center">
+
       {/* Sidebar toggle button for small screens */}
       <button onClick={toggleSidebar} className="md:hidden text-gray-600 hover:bg-gray-300 p-2 rounded-lg">
         <Menu size={24} />
       </button>
       
       {/* Welcome message */}
-      <h1 className="text-lg lg:text-xl font-bold mb-2 lg:mb-0 hidden md:block">Welcome, Admin</h1>
+      <h1 className="text-lg lg:text-xl text-black font-bold mb-2 lg:mb-0 hidden md:block">Welcome, Admin</h1>
       
       {/* Conditional Search bar for larger screens */}
       {showSearchBar && (
@@ -42,7 +44,7 @@ const Navbar = ({ toggleSidebar }) => {
 
       {/* Notification and User icons */}
       <div className="flex items-center gap-4">
-        <button className="relative hover:bg-gray-300 p-2 rounded-lg transition duration-300 text-gray-600">
+        <button className="relative hover:bg-gray-300 p-2 rounded-lg transition duration-300 text-black">
           <Bell size={24} />
           <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
             3
@@ -51,9 +53,9 @@ const Navbar = ({ toggleSidebar }) => {
 
         {/* User Info */}
         <div className="flex items-center gap-2" onClick={handleAdminUserClick}>
-          <User size={18} className="text-gray-600 hidden md:block" />
-          <span className="hidden md:block text-gray-700 font-semibold">Admin User</span>
-          <ChevronDown size={16} className="text-gray-600" />
+          <User size={18} className="text-black hidden md:block" />
+          <span className="hidden md:block text-black font-semibold">Admin User</span>
+          <ChevronDown size={16} className="text-black" />
         </div>
       </div>
     </div>

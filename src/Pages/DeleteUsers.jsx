@@ -6,12 +6,12 @@ import { FaUsers } from "react-icons/fa";
 
 // Dummy data
 const dummyDeletedUsers = [
-  { userId: 1, name: "John Doe", role: "Admin", phone: "+1234567890", deletedAt: "2024-12-01T12:00:00Z" },
-  { userId: 2, name: "Jane Smith", role: "User", phone: "+0987654321", deletedAt: "2024-12-02T15:30:00Z" },
-  { userId: 3, name: "Robert Brown", role: "Moderator", phone: "+1122334455", deletedAt: "2024-12-05T08:45:00Z" },
-  { userId: 4, name: "Emily White", role: "User", phone: "+1222333444", deletedAt: "2024-12-08T10:20:00Z" },
-  { userId: 5, name: "John Doe", role: "Admin", phone: "123-456-7890", deletedAt: new Date() },
-  { userId: 6, name: "Jane Smith", role: "User", phone: "987-654-3210", deletedAt: new Date() },
+  { userId: 1, name: "John Doe", phone: "+1234567890", deletedAt: "2024-12-01T12:00:00Z" },
+  { userId: 2, name: "Jane Smith", phone: "+0987654321", deletedAt: "2024-12-02T15:30:00Z" },
+  { userId: 3, name: "Robert Brown", phone: "+1122334455", deletedAt: "2024-12-05T08:45:00Z" },
+  { userId: 4, name: "Emily White", phone: "+1222333444", deletedAt: "2024-12-08T10:20:00Z" },
+  { userId: 5, name: "John Doe", phone: "123-456-7890", deletedAt: new Date() },
+  { userId: 6, name: "Jane Smith", phone: "987-654-3210", deletedAt: new Date() },
 ];
 
 const totalDummy = 4;
@@ -64,7 +64,6 @@ function DeleteUsers({ setPage, page }) {
             <thead>
               <tr className="bg-gray-100">
                 <th className="px-4 py-2 text-left">Name</th>
-                <th className="px-4 py-2 text-left">Role</th>
                 <th className="px-4 py-2 text-left">Phone</th>
                 <th className="px-4 py-2 text-left">Deleted At</th>
               </tr>
@@ -79,7 +78,6 @@ function DeleteUsers({ setPage, page }) {
                 .map((user) => (
                   <tr key={user.userId} className="border-b hover:bg-gray-50">
                     <td className="px-4 py-2">{user.name}</td>
-                    <td className="px-4 py-2">{user.role}</td>
                     <td className="px-4 py-2">{user.phone}</td>
                     <td className="px-4 py-2">
                       {format(new Date(user.deletedAt), "MM/dd/yyyy")}
