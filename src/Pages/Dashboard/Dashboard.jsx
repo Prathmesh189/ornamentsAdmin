@@ -1,9 +1,5 @@
 import React from 'react';
-import DashboardCard from './DashboardCard'; // Import DashboardCard
-import PerformanceChart from './PerformanceChart'; // Import PerformanceChart
-import TrendingProducts from './TrendingProducts';
-import CustomerGrowthCard from './CustomerGrowthCard'; 
-import Sales from './Sales'; // Import Sales
+
 
 function Dashboard() {
   return (
