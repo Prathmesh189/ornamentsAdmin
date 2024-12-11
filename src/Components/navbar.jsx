@@ -17,9 +17,8 @@ const Navbar = ({ toggleSidebar }) => {
   };
 
   return (
-    // <div className="bg-gray-100 shadow-md px-4 py-2 flex justify-between items-center text-gray-700">
-  <div style={{ backgroundColor: '#A48E90', color: '#6F6F6F' }} className="shadow-md px-4 py-2 flex justify-between items-center">
-
+     <div className="bg-gray-100 shadow-md px-4 py-2 flex justify-between items-center text-gray-700">
+  
       {/* Sidebar toggle button for small screens */}
       <button onClick={toggleSidebar} className="md:hidden text-gray-600 hover:bg-gray-300 p-2 rounded-lg">
         <Menu size={24} />
