@@ -12,7 +12,7 @@ import AddBall from './AddForms/AddBall';
 import AddShoes from './AddForms/AddShoes';
 import AddTrackPant from './AddForms/AddTrackPant';
 import AddCaps from './AddForms/AddCaps';
-import { GiNecklace, GiEarrings, GiRing, GiHairStrands } from 'react-icons/gi'; // Jewelry related icons
+import { GiNecklace, GiEarrings, GiRing, GiHairStrands } from 'react-icons/gi'; 
 
 function Products() {
   const [products, setProducts] = useState(mockProductData);
