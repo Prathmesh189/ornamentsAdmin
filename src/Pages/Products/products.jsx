@@ -64,11 +64,16 @@ function Products() {
       {/* Stat Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-6 mb-6">
         <StatCard name="All Products" icon={FaTshirt} value={products.length} color="black" onClick={() => handleStatCardClick('All')} />
-        <StatCard name="T-shirts" icon={FaTshirt} value={products.filter(p => p.category === 'tshirt').length} color="blue" onClick={() => handleStatCardClick('tshirt')} />
-        <StatCard name="Bats" icon={FaBaseballBall} value={products.filter(p => p.category === 'bat').length} color="green" onClick={() => handleStatCardClick('bat')} />
-        <StatCard name="Shoes" icon={FaShoePrints} value={products.filter(p => p.category === 'shoes').length} color="red" onClick={() => handleStatCardClick('shoes')} />
-        <StatCard name="Tracks" icon={PiPantsFill} value={products.filter(p => p.category === 'trackpants').length} color="yellow" onClick={() => handleStatCardClick('trackpants')} />
-        <StatCard name="Caps" icon={GiBilledCap} value={products.filter(p => p.category === 'cap').length} color="pink" onClick={() => handleStatCardClick('cap')} />
+        <StatCard name="Mangalsutra" icon={FaTshirt} value={products.filter(p => p.category === 'Mangalsutra').length} color="blue" onClick={() => handleStatCardClick('Mangalsutra')} />
+        <StatCard name="Earrings" icon={FaBaseballBall} value={products.filter(p => p.category === 'Earrings').length} color="green" onClick={() => handleStatCardClick('Earrings')} />
+        <StatCard name="Rings" icon={FaShoePrints} value={products.filter(p => p.category === 'Rings').length} color="red" onClick={() => handleStatCardClick('Rings')} />
+        <StatCard name="Khopa" icon={PiPantsFill} value={products.filter(p => p.category === 'Khopa').length} color="yellow" onClick={() => handleStatCardClick('Khopa')} />
+        <StatCard name="HairPins" icon={GiBilledCap} value={products.filter(p => p.category === 'HairPins').length} color="pink" onClick={() => handleStatCardClick('HairPins')} />
+        <StatCard name="Nacklace set" icon={FaBaseballBall} value={products.filter(p => p.category === 'Nacklace set').length} color="green" onClick={() => handleStatCardClick('Nacklace set')} />
+        <StatCard name="Peacock theme Jwellary" icon={FaShoePrints} value={products.filter(p => p.category === 'Peacock theme Jwellary').length} color="red" onClick={() => handleStatCardClick('Peacock theme Jwellary')} />
+        <StatCard name="Earcuffs" icon={PiPantsFill} value={products.filter(p => p.category === 'Earcuffs').length} color="yellow" onClick={() => handleStatCardClick('Earcuffs')} />
+        <StatCard name="Bangles" icon={GiBilledCap} value={products.filter(p => p.category === 'Bangles').length} color="pink" onClick={() => handleStatCardClick('Bangles')} />
+        <StatCard name="Traditional Nath" icon={GiBilledCap} value={products.filter(p => p.category === 'Traditional Nath').length} color="pink" onClick={() => handleStatCardClick('Traditional Nath')} />
       </div>
 
       {/* Add Product Button */}
@@ -80,11 +85,16 @@ function Products() {
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
         <select onChange={(e) => setFilter(e.target.value)} className="border p-3 rounded-lg shadow-md w-full sm:w-1/4">
           <option value="All">All Categories</option>
-          <option value="tshirt">T-shirt</option>
-          <option value="bat">Bat</option>
-          <option value="shoes">Shoes</option>
-          <option value="trackpants">Tracks</option>
-          <option value="cap">Caps</option>
+          <option value="Mangalsutra">Mangalsutra</option>
+          <option value="Earrings">Earrings</option>
+          <option value="Rings">Rings</option>
+          <option value="Khopa">Khopa</option>
+          <option value="HairPins">HairPins</option>
+          <option value="Nacklace set">Nacklace set</option>
+          <option value="Peacock theme Jwellary">Peacock theme Jwellary</option>
+          <option value="Earcuffs">Earcuffs</option>
+          <option value="Bangles">Bangles</option>
+          <option value="Traditional Nath">Traditional Nath</option>
         </select>
         <input type="text" placeholder="Search by Product ID or Name" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="border p-3 rounded-lg shadow-md w-full sm:w-1/2" />
       </div>
